@@ -4,6 +4,12 @@ A small static site for sending a **Bhai Tika gift** over KakaoTalk, hosted on G
 
 The recipient opens the gift page and sees a short prank video: the gift box holds a spider 🕷️ and ends with "Balla paryo makuri jalaima", a famous Nepali folk song line meaning "someone has finally fallen into a trap".
 
+## Demo
+
+[![Demo reel: sending and opening the Tihar prank cards](images/demo/demo-reel-preview.gif)](videos/demo/tihar-prank-cards-portfolio-reel.mp4)
+
+▶️ **[Watch the full video with sound](videos/demo/tihar-prank-cards-portfolio-reel.mp4)** (30 s). It shows both cards being sent and opened, including the daksina card described [below](#the-daksina-prank-not-included).
+
 ## Two ways to send the gift
 
 ### Option 1: Paste the link (no setup)
@@ -43,12 +49,14 @@ favicon.svg       Browser tab icon.
 videos/
   original/       Source video exports (not committed).
   processed/      bhai-tika.mp4, the compressed gift video.
+  demo/           Demo reel shown in this README.
 images/
   original/       kakao-preview.jpg (mock-up the card banner came from),
                   vaikopay-logo-800x240.png (Kakao app icon).
   processed/      kakao-card.jpg (Option 2 card banner),
                   nepali-gift-preview.jpg (Option 1 link preview image),
                   bhai-tika-poster.jpg (shown while the video loads).
+  demo/           Demo reel GIF preview and the daksina card screenshot.
 ```
 
 ## Running and deploying
@@ -85,4 +93,15 @@ KakaoTalk caches images and previews by URL. After replacing an image, give it a
 | Old image or preview still shows | KakaoTalk cache. Rename the file or bump `?v=N`. For link previews you can also clear it at https://developers.kakao.com/tool/debugger/sharing. |
 | `Kakao is not defined` | The SDK script failed to load (network, ad blocker, or wrong version URL). |
 
-Keep the card clearly a Tihar gift. Kakao can suspend apps whose cards imitate Kakao services such as KakaoPay transfers.
+## The daksina prank (not included)
+
+As a second part of this project, I extended the card to look like a KakaoPay money transfer, as a fake daksina (the money given at Bhai Tika):
+
+```js
+title: '100,000원을 보냈어요.',
+description: '송금 받기 전까지 보낸 분은 내역 상세화면에서 취소할 수 있어요.',
+```
+
+<img src="images/demo/daksina-prank-card.png" alt="Fake KakaoPay transfer card reading 100,000원을 보냈어요" width="360">
+
+**Kakao blocked it, so don't try this.** Kakao suspends apps whose cards imitate its own services, such as KakaoPay transfer messages. That code isn't in this repo; only the first part, the Tika gift card, is. Keep your cards clearly a gift.
