@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Send Tika Gift</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; gap: 24px; justify-content: center; align-items: center; background: #1a1a1a; font-family: sans-serif; }
+  img { width: min(90vw, 400px); border-radius: 12px; }
+</style>
+</head>
+<body>
+  <img src="kakao-card.jpg?v=2" alt="Card preview">
+  <button id="kakao-share" style="padding:12px 20px;font-size:16px;border:0;border-radius:10px;background:#FEE500;color:#191919;font-weight:600;cursor:pointer">카카오톡으로 보내기</button>
+
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+  <script>
+    Kakao.init('b754e00f82b046a8e6c0251ba2eb8afe');
+    const url = 'https://bibekyess.github.io/happy-tihar/';
+    document.getElementById('kakao-share').onclick = () => Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '행복한 바이 티카! 🎁',
+        description: 'Tihar 선물이 도착했어요. 아래 버튼을 눌러 확인하세요.',
+        imageUrl: url + 'kakao-card.jpg?v=2',
+        imageWidth: 800,
+        imageHeight: 336,
+        link: { mobileWebUrl: url, webUrl: url }
+      },
+      buttons: [{ title: '선물 받기', link: { mobileWebUrl: url, webUrl: url } }]
+    });
+  </script>
+</body>
+</html>
